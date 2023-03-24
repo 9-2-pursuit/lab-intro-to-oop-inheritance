@@ -21,10 +21,22 @@ class Tamagotchi {
       }\nI am ${this.sick ? "" : "not "}sick`
     );
   }
+
+  eat() {
+    this.full += 2;
+    this.energy--;
+    if (this.full > 10) {
+      this.sick = true;
+    }
+  }
 }
 
 const pet = new Tamagotchi("Albert", 2, 3, 5, false, true);
 pet.status();
+while (!pet.sick) {
+  pet.eat();
+  pet.status();
+}
 
 // Do not edit below this line
 module.exports = Tamagotchi;
