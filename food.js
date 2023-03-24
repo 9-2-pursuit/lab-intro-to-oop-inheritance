@@ -11,7 +11,7 @@ class Food {
   }
 
   isFresh() {
-    if (fresh) {
+    if (this.daysToSpoil > 0) {
       console.log(
         `There are ${this.daysToSpoil} days left before ${this.name} spoils`
       );
@@ -19,6 +19,19 @@ class Food {
       console.log(`${this.name} has spoiled.`);
     }
   }
+
+  aDayPasses() {
+    this.daysToSpoil--;
+    this.isFresh();
+  }
+}
+
+// Testing
+const salmon = new Food("salmon", 4);
+salmon.prepare();
+salmon.isFresh();
+for (let i = 0; i < 6; i++) {
+  salmon.aDayPasses();
 }
 
 // Do not edit below this line
