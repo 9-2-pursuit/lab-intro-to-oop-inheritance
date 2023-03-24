@@ -57,6 +57,11 @@ class Tamagotchi {
       this.full--;
     }
   }
+
+  sleep() {
+    this.energy += 4;
+    this.full -= 3;
+  }
 }
 
 const pet = new Tamagotchi("Albert", 2, 3, 5, false, true);
