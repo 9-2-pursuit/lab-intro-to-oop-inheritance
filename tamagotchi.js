@@ -18,7 +18,7 @@ class Tamagotchi {
     console.log(
       `My mood is: ${this.mood}\nI am this full: ${this.full}\nMy energy is: ${
         this.energy
-      }\nI am ${this.sick ? "" : "not "}sick`
+      }\nI am ${this.sick ? "" : "not "}sick\n\n`
     );
   }
 
@@ -29,14 +29,28 @@ class Tamagotchi {
       this.sick = true;
     }
   }
+
+  medicate() {
+    if (this.sick) {
+      this.full = 9;
+      this.energy -= 3;
+    } else {
+      console.log(`refusal to take medicine`);
+      this.energy--;
+    }
+  }
 }
 
 const pet = new Tamagotchi("Albert", 2, 3, 5, false, true);
 pet.status();
+
+pet.medicate();
 while (!pet.sick) {
   pet.eat();
   pet.status();
 }
+pet.medicate();
+pet.status();
 
 // Do not edit below this line
 module.exports = Tamagotchi;
