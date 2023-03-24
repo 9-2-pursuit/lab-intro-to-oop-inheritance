@@ -9,6 +9,16 @@ class Food {
   prepare() {
     console.log(`${this.name} is being prepared`);
   }
+
+  isFresh() {
+    if (fresh) {
+      console.log(
+        `There are ${this.daysToSpoil} days left before ${this.name} spoils`
+      );
+    } else {
+      console.log(`${this.name} has spoiled.`);
+    }
+  }
 }
 
 // Do not edit below this line
