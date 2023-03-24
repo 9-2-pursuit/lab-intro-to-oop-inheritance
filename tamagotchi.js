@@ -74,6 +74,24 @@ class Tamagotchi {
       this.energy -= 2;
     }
   }
+
+  badGuardian() {
+    if (this.energy <= 0) {
+      this.rehomed = true;
+    }
+
+    if (this.mood <= 0) {
+      this.rehomed = true;
+    }
+
+    if (this.full <= 0) {
+      this.rehomed = true;
+    }
+
+    if (this.rehomed) {
+      console.log(`${this.name} has been rehomed.`);
+    }
+  }
 }
 
 const pet = new Tamagotchi("Albert", 2, 3, 5, false, true);
@@ -86,6 +104,11 @@ while (!pet.sick) {
 }
 pet.medicate();
 pet.status();
+
+pet.play();
+pet.sleep();
+pet.timePasses();
+pet.badGuardian();
 
 // Do not edit below this line
 module.exports = Tamagotchi;
