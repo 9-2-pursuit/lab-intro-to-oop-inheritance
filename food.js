@@ -29,6 +29,7 @@ class Food {
 class BadFood extends Food {
   constructor(name, daysToSpoil, fresh, weapons) {
     super(name, daysToSpoil);
+    this.daysToSpoil = 20;
     this.weapons = weapons || [
       {
         name: "Sprinkle Spray",
@@ -48,6 +49,18 @@ class BadFood extends Food {
   isFresh() {
     super.isFresh();
   }
+
+  prepare() {
+    console.log(`I am ${this.name} and my calories are too high to count!`);
+  }
+
+  fight(otherBadFood) {
+    let weapon = this.weapons[Math.floor(Math.random() * this.weapons.length)];
+    otherBadFood.daysToSpoil -= weapon.hitPoints;
+    console.log(
+      `${otherBadFood.name} is down ${otherBadFood.daysToSpoil}, but I am still up ${this.daysToSpoil}`
+    );
+  }
 }
 
 // Testing
@@ -56,6 +69,24 @@ salmon.prepare();
 salmon.isFresh();
 for (let i = 0; i < 6; i++) {
   salmon.aDayPasses();
+}
+
+const hotdog = new BadFood("Hotdog");
+const broccoli = new BadFood("Brocolli");
+hotdog.prepare();
+broccoli.prepare();
+
+hotdog.fight(broccoli);
+broccoli.fight(hotdog);
+
+while (hotdog.daysToSpoil > 0 && broccoli.daysToSpoil > 0) {
+  hotdog.fight(broccoli);
+  broccoli.fight(hotdog);
+}
+if (hotdog.daysToSpoil > broccoli.daysToSpoil) {
+  console.log(`${hotdog.name} wins!`);
+} else {
+  console.log(`${broccoli.name} wins!`);
 }
 
 // Do not edit below this line
