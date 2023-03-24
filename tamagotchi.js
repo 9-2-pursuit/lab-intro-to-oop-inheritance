@@ -39,6 +39,23 @@ class Tamagotchi {
       this.energy--;
     }
   }
+
+  play() {
+    if (this.sick) {
+      this.mood--;
+      this.energy--;
+    } else if (this.mood > 9) {
+      this.energy -= 2;
+      this.full--;
+    } else if (this.energy <= 3) {
+      console.log(`I am too tired to play`);
+      this.energy--;
+    } else {
+      this.mood += 2;
+      this.energy--;
+      this.full--;
+    }
+  }
 }
 
 const pet = new Tamagotchi("Albert", 2, 3, 5, false, true);
