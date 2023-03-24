@@ -26,6 +26,30 @@ class Food {
   }
 }
 
+class BadFood extends Food {
+  constructor(name, daysToSpoil, fresh, weapons) {
+    super(name, daysToSpoil);
+    this.weapons = weapons || [
+      {
+        name: "Sprinkle Spray",
+        hitPoints: 3,
+      },
+      {
+        name: "Icing Deluge",
+        hitPoints: 4,
+      },
+      {
+        name: "Sugar Shock",
+        hitPoints: 5,
+      },
+    ];
+  }
+
+  isFresh() {
+    super.isFresh();
+  }
+}
+
 // Testing
 const salmon = new Food("salmon", 4);
 salmon.prepare();
