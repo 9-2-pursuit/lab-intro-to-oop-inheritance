@@ -15,5 +15,8 @@ class Tamagotchi {
 
 
 }
+
+const pika = new Tamagotchi('pika')
+pika.greet()
 // Do not edit below this line
 module.exports = Tamagotchi;
