@@ -2,7 +2,7 @@
 class Food {
     constructor(name, daysToSpoil, fresh) {
         this.name = name;
-        this.daysToSpoil = 5;
+        this.daysToSpoil = -1;
         this.fresh  = true;
     }
 
@@ -30,6 +30,11 @@ class Food {
 const pineapples = new Food('pineapples')
 const cherries = new Food('cherreis')
 cherries.prepare()
+cherries.isFresh()
+cherries.aDayPasses()
+pineapples.prepare()
+pineapples.isFresh()
 pineapples.aDayPasses()
+
 // Do not edit below this line
 module.exports = Food;
