@@ -20,7 +20,10 @@ class Food {
         }
     }
 
-    
+    aDayPasses() {
+        this.daysToSpoil = this.daysToSpoil - 1;
+        console.log(this.isFresh());
+    }
     
 }
 // Do not edit below this line
