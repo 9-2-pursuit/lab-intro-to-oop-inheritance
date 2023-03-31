@@ -86,6 +86,10 @@ class Tamagotchi {
       this.rehomed = true;
     }
   }
+
+  badGuardian() {
+    if(this.energy <= 0 || this.mood <= 0 || this.full <= 0){this.rehomed=true}
+  }
 }
 
 // Do not edit below this line
