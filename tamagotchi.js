@@ -29,7 +29,13 @@ class Tamagotchi {
     );
   }
 
-  
+  eat() {
+    this.full += 2;
+    this.energy -= 1;
+    if (this.full > 10) {
+      this.sick = true;
+    }
+  }
 }
 
 // Do not edit below this line
