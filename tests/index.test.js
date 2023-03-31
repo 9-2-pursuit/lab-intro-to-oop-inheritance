@@ -8,7 +8,7 @@ beforeAll(() => {
   fizz = new Tamagotchi("Fizz");
 });
 
-describe.only("Food class", () => {
+describe("Food class", () => {
   test("Can call new on Food", () => {
     const bananaCreamPie = new Food("BananaCreamPie", 4);
     expect(bananaCreamPie).toBeTruthy();
@@ -79,7 +79,7 @@ describe.only("Food class", () => {
   });
 });
 
-describe("Tamagotchi Class", () => {
+describe.only("Tamagotchi Class", () => {
   test("Can call new on Tamagotchi", () => {
     const buzz = new Tamagotchi("Buzz");
     expect(buzz).toBeTruthy();
