@@ -65,6 +65,11 @@ class Tamagotchi {
       this.full -= 1;
     }
   }
+
+  sleep() {
+    this.energy += 4;
+    this.full -= 3;
+  }
 }
 
 // Do not edit below this line
