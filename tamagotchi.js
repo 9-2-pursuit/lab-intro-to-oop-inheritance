@@ -25,6 +25,21 @@ class Tamagotchi {
         this.sick = true;
     }
   }
+
+  medicate() {
+    if(this.sick) {
+        this.full = 9;
+        this.energy -= 3;
+        this.sick = false;
+    }else {
+      console.log(`refusal to take medicine`);
+      this.energy -= 1;
+
+    }
+   
+  }
+
+ 
 }
 
 // Do not edit below this line
