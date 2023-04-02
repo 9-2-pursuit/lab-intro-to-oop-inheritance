@@ -18,11 +18,9 @@ class Tamagotchi {
   }
 
   eat() {
-    this.full += 2;
-    this.energy -= 1;
-    if (this.full > 10) {
-      this.sick = true;
-    }
+    (this.full += 2) && (this.energy -= 1);
+
+    if (this.full > 10) this.sick = true;
   }
 
   medicate() {
@@ -57,16 +55,15 @@ class Tamagotchi {
   }
 
   sleep() {
-    this.energy += 4;
-    this.full -= 3;
+    (this.energy += 4) && (this.full -= 3);
   }
 
   timePasses() {
-    if(this.sick) {
-   this.mood -= 3;
-   this.full -= 2;
-   this.energy -= 2;
-    }else {
+    if (this.sick) {
+      this.mood -= 3;
+      this.full -= 2;
+      this.energy -= 2;
+    } else {
       this.mood -= 2;
       this.full -= 1;
       this.energy -= 1;
@@ -74,9 +71,11 @@ class Tamagotchi {
   }
 
   badGuardian() {
-    if(this.energy <= 0 ) {
-      this.rehomed = true;
-    }
+    if (this.energy <= 0) this.rehomed = true;
+
+    // if(this.energy <= 0 && this.mood <= 0 && this.full <= 0) {
+    //   this.rehomed = true
+    // }
   }
 }
 
